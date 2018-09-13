@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Footer } from 'react-materialize';
 
 import styled from 'styled-components';
 
@@ -11,15 +12,15 @@ const Wrapper = styled.div`
   top: 100vh;
 `;
 
-class Footer extends Component {
+class FooterComponent extends Component {
 
   render() {
     return (
-      <Wrapper>
-        Copyright 2018
+      <Wrapper className="teal">
+        &copy; 2018 Copyright
       </Wrapper>
     );
   }
 }
 
-export default Footer;
+export default FooterComponent;

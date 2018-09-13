@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { Home, Products, Posts, Post, Profile, Contact } from '../Export';
+import { Home, Resume, Works, Work, About, Contact } from '../Export';
 
 import styled from 'styled-components';
 
@@ -13,16 +13,16 @@ class Main extends Component {
 
   render() {
     return (
-      <MainWrapper>
+      <main className="container" style={{border: "1px solid black"}}>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/posts' component={Posts} />
-          <Route exact path='/post/:post' component={Post} />
-          <Route exact path='/profile' component={Profile} />
-          <Route exact path='/products' component={Products} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/works' component={Works} />
+          <Route exact path='/work/:work_id' component={Work} />
+          <Route exact path='/resume' component={Resume} />
           <Route exact path='/contact' component={Contact} />
         </Switch>
-      </MainWrapper>
+      </main>
     );
   }
 }

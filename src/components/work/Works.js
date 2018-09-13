@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 
 import { loadPosts } from '../../actions/postAction';
 import client from '../../contentfulCredentials';
-import { PostItem } from '../Export';
+import { WorkItem } from '../Export';
 
-class Posts extends React.Component {
+class Works extends React.Component {
 
   componentDidMount() {
     // this.fetchPosts().then(this.setPosts)
@@ -25,14 +25,14 @@ class Posts extends React.Component {
         loading && <h3>Loading ...</h3>
       }
       {
-        !loading && posts.map(({fields}, i) => <PostItem key={i} {...fields} />)
+        !loading && posts.map(({fields}, i) => <WorkItem key={i} {...fields} />)
       }
       </div>
     )
   }
 }
 
-Posts.propTypes = {
+Works.propTypes = {
   post: PropTypes.object.isRequired,
   loadPosts: PropTypes.func.isRequired
 };
@@ -41,4 +41,4 @@ const mapStateToProps = state => ({
   post: state.post
 });
 
-export default connect( mapStateToProps, { loadPosts })(Posts);
+export default connect( mapStateToProps, { loadPosts })(Works);

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import * as Markdown from 'react-markdown'
 
-const Post = ({ location: { state: { props } }}) => (
+const Work = ({ location: { state: { props } }}) => (
   <div>
     <nav>
       <div style={{float: 'left'}}>
-        <Link to='/posts'>Back to Posts</Link>
+        <Link to='/works'>Revenir à la liste</Link>
       </div>
       <div style={{float: 'right'}}>
         <p>
@@ -29,4 +29,4 @@ const Post = ({ location: { state: { props } }}) => (
   </div>
 );
 
-export default Post;
+export default Work;
