@@ -36,34 +36,36 @@ class Contact extends Component {
     const { email, content } = this.state;
     return (
       <div style={{textAlign: "center"}}>
-        <h4>Contact</h4>
-        <h5>Une interrogation, laissez moi un message et je vous recontacterai</h5>
-        <Card style={{ margin: "30px 0", width: "auto", height: "auto" }}>
-          <form onSubmit={this.handleSubmit} noValidate style={{postion: "relative"}}>
-            <Row className="container" style={{ position: "relative", left: "50%", transform: "translateX(-50%)"}}>
-              <Input
-                type="email"
-                onChange={this.handleChange}
-                value={email}
-                name="Email"
-                label="Email"
-                s={12}
-              />
-              <Input
-                style={{border:"1px solid #ccc", borderRadius: "5px"}}
-                type="textarea"
-                onChange={this.handleChange}
-                value={content}
-                name="content"
-                placeholder="Dites moi tout"
-                label="Votre requête"
-                s={12}
-                rows={100}
-              />
-              <Button s={12} waves="light" type="submit">Envoyer</Button>
-            </Row>
-          </form>
-        </Card>
+        <div className="container">
+          <h4>Contact</h4>
+          <h5>Une interrogation, laissez moi un message et je vous recontacterai</h5>
+          <Card style={{ margin: "30px 0", width: "auto", height: "auto" }}>
+            <form onSubmit={this.handleSubmit} noValidate style={{postion: "relative"}}>
+              <Row className="container" style={{ position: "relative", left: "50%", transform: "translateX(-50%)"}}>
+                <Input
+                  type="email"
+                  onChange={this.handleChange}
+                  value={email}
+                  name="Email"
+                  label="Email"
+                  s={12}
+                />
+                <Input
+                  style={{border:"1px solid #ccc", borderRadius: "5px"}}
+                  type="textarea"
+                  onChange={this.handleChange}
+                  value={content}
+                  name="content"
+                  placeholder="Dites moi tout"
+                  label="Votre requête"
+                  s={12}
+                  rows={100}
+                />
+                <Button s={12} waves="light" type="submit">Envoyer</Button>
+              </Row>
+            </form>
+          </Card>
+        </div>
       </div>
     );
   }

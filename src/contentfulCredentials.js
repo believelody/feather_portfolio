@@ -1,6 +1,6 @@
 import * as contentful from 'contentful';
 
 export default contentful.createClient({
-  space: '88ssm3op98qm',
-  accessToken: '2cb9bf2ce772b17c3619e6f0c65c160a7d784fc68c997f25fdca166d6f3a1d8e'
+  space: '7z4jrxe21t05',
+  accessToken: '17cf7a57fad0a831ec94ea9785179d13684cfb0913d339a7f2e79bf1ecdb0c13'
 });

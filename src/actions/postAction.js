@@ -14,7 +14,10 @@ export const loadPostsSuccess = posts => ({
 export const loadPosts = () => dispatch => {
   dispatch(postsLoading());
   client.getEntries()
-    .then(({ items }) => dispatch(loadPostsSuccess(items)))
+    .then(({ items }) => {
+      console.log(items);
+      dispatch(loadPostsSuccess(items))
+    })
     .catch(err => {
       console.log(err);
       dispatch(postsLoading(false));

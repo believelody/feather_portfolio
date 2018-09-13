@@ -16,7 +16,7 @@ class FooterComponent extends Component {
 
   render() {
     return (
-      <Wrapper className="teal">
+      <Wrapper className="deep-orange darken-4">
         &copy; 2018 Copyright
       </Wrapper>
     );

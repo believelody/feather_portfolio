@@ -13,7 +13,7 @@ class Main extends Component {
 
   render() {
     return (
-      <main className="container">
+      <main>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/about' component={About} />
