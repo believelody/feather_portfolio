@@ -6,13 +6,13 @@
     "axios": "^0.18.0",
     "contentful": "^7.0.3",
     "emailjs-com": "^2.2.4",
-    "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
     "react-markdown": "^3.6.0",
+    "react-materialize": "^2.4.5",
     "react-moment": "^0.7.9",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
@@ -30,6 +30,5 @@
   },
   "devDependencies": {
     "redux-devtools-extension": "^2.13.5"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
