@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "contentful": "^7.0.3",
+    "emailjs-com": "^2.2.4",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
@@ -11,14 +13,13 @@
     "react-helmet": "^5.2.0",
     "react-markdown": "^3.6.0",
     "react-moment": "^0.7.9",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
-    "styled-components": "^3.4.5",
-    "axios": "^0.18.0",
-    "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-immutable-state-invariant": "^2.1.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^3.4.5"
   },
   "scripts": {
     "start": "react-scripts start",
