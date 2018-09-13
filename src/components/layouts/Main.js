@@ -13,7 +13,7 @@ class Main extends Component {
 
   render() {
     return (
-      <main className="container" style={{border: "1px solid black"}}>
+      <main className="container">
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/about' component={About} />

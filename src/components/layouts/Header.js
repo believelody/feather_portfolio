@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Navbar, NavItem } from 'react-materialize';
 // import styled from 'styled-components';
 
@@ -64,21 +64,20 @@ class Header extends Component {
   render() {
     return (
       <Navbar className="teal" brand="I am Mani D" right>
-        <NavItem>
-          <NavLink to='/'>Accueil</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to='/about'>A propos de moi</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to='/resume'>Mon CV</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to='/works'>Mes travaux</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to='/contact'>Contact</NavLink>
-        </NavItem>
+
+          <NavItem href='/'>Accueil</NavItem>
+
+
+          <NavItem href='/about'>A propos de moi</NavItem>
+
+
+          <NavItem href='/resume'>Mon CV</NavItem>
+
+
+          <NavItem href='/works'>Mes travaux</NavItem>
+
+
+          <NavItem href='/contact'>Contact</NavItem>
       </Navbar>
     );
   }

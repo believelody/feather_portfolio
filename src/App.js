@@ -11,7 +11,6 @@ const Site = styled.div`
   display: grid;
   grid-template-rows: auto 1fr 30px;
   min-height: 100vh;
-  border: 1px solid green;
 `;
 
 class App extends Component {
@@ -20,7 +19,7 @@ class App extends Component {
       <BrowserRouter>
         <Site>
           <Helmet
-            title="React + Contentful + Netlify"
+            title="Mani D Portfolio"
             meta={[
               { name: 'description', content: 'test react app w/ contenful and deploy on netlify' },
               { name: 'keywords', content: 'resume, blog, porfolio, react, contentful, netlify' },
