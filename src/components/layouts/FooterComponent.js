@@ -16,7 +16,7 @@ class FooterComponent extends Component {
 
   render() {
     return (
-      <Wrapper className="deep-orange darken-4">
+      <Wrapper style={{backgroundImage: 'linear-gradient(to bottom right, #1153FC, #B588E7)'}}>
         &copy; 2018 Copyright
       </Wrapper>
     );

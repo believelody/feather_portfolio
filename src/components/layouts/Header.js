@@ -11,21 +11,12 @@ class Header extends Component {
 
   render() {
     return (
-      <Navbar className="orange darken-4" brand="I am Mani D" right>
-
-          <li><Link to='/'>Accueil</Link></li>
-
-
-          <li><Link to='/about'>A propos de moi</Link></li>
-
-
-          <li><Link to='/resume'>Mon CV</Link></li>
-
-
-          <li><Link to='/works'>Mes travaux</Link></li>
-
-
-          <li><Link to='/contact'>Contact</Link></li>
+      <Navbar style={{backgroundImage: 'linear-gradient(to bottom right, #1DE5E2, #5581F1)'}} brand="I am Mani D" right>
+        <li><Link to='/'>Accueil</Link></li>
+        <li><Link to='/about'>A propos de moi</Link></li>
+        <li><Link to='/resume'>Mon CV</Link></li>
+        <li><Link to='/works'>Mes travaux</Link></li>
+        <li><Link to='/contact'>Contact</Link></li>
       </Navbar>
     );
   }
