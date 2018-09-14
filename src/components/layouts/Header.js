@@ -13,19 +13,19 @@ class Header extends Component {
     return (
       <Navbar className="orange darken-4" brand="I am Mani D" right>
 
-          <NavItem href='/'>Accueil</NavItem>
+          <li><Link to='/'>Accueil</Link></li>
 
 
-          <NavItem href='/about'>A propos de moi</NavItem>
+          <li><Link to='/about'>A propos de moi</Link></li>
 
 
-          <NavItem href='/resume'>Mon CV</NavItem>
+          <li><Link to='/resume'>Mon CV</Link></li>
 
 
-          <NavItem href='/works'>Mes travaux</NavItem>
+          <li><Link to='/works'>Mes travaux</Link></li>
 
 
-          <NavItem href='/contact'>Contact</NavItem>
+          <li><Link to='/contact'>Contact</Link></li>
       </Navbar>
     );
   }
