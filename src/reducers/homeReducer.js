@@ -2,7 +2,8 @@ import * as types from '../types';
 
 const initialState = {
   loading: false,
-  data: null
+  data: null,
+  video: null
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -17,6 +18,11 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         data: payload,
         loading: false
+      }
+    case types.LOAD_HOME_VIDEO_SUCCESS:
+      return {
+        ...state,
+        video: payload
       }
     default:
       return state;

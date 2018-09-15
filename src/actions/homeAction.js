@@ -11,16 +11,26 @@ export const homeBackgroundLoadSuccess = data => ({
   payload: data
 });
 
+export const homeVideoBackgroundLoadSuccess = video => ({
+  type: types.LOAD_HOME_VIDEO_SUCCESS,
+  payload: video
+});
+
 export const loadHomeBackground = () => dispatch => {
   dispatch(homeBackgroundLoadSuccess());
-  client.getEntries()
-    .then(({ items }) => {
-      // console.log(items[0].fields);
-      // dispatch(homeBackgroundLoading(false))
-      dispatch(homeBackgroundLoadSuccess(items[0].fields))
+  client.getEntry("7m7h78nxhm60026iykCoC0")
+    .then(({ fields }) => {
+      dispatch(homeBackgroundLoadSuccess(fields));
     })
     .catch(err => {
       console.log(err);
       dispatch(homeBackgroundLoading(false));
+    });
+}
+
+export const loadVideoHomeBackground = () => dispatch => {
+  client.getEntry("7e23iYRVfOAoUQS26sGQuI")
+    .then(({fields}) => {
+      dispatch(homeVideoBackgroundLoadSuccess(fields));
     });
 }
