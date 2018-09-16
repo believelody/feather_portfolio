@@ -1,53 +1,83 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Slider, Slide } from 'react-materialize';
 
-class PhotoComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      index: 0
-    };
-    this.timeinterval;
-  }
+const INTERVAL = 2000;
+const INDICATORS = false;
+const TRANSITION = 300;
 
-  componentWillMount() {
-    this.diapo(this.props.data);
-  }
+const PhotoComponent = ({data}) => {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     index: 0
+  //   };
+  //   this.timeinterval;
+  // }
+  //
+  // componentWillMount() {
+  //   this.diapo(this.props.data);
+  // }
+  //
+  // componentWillUnmount() {
+  //   clearInterval(this.timeinterval);
+  // }
+  //
+  // diapo = (data) => {
+  //   let { index } = this.state;
+  //   this.timeinterval = setInterval(() => {
+  //     if (index === data.length) {
+  //       this.setState({index: 0})
+  //     }
+  //     else {
+  //       this.setState({index});
+  //       index++;
+  //     }
+  //   }, 2000);
+  // }
 
-  componentWillUnmount() {
-    clearInterval(this.timeinterval);
-  }
+  // Test with setTimeout, doesn't work
+  // diapo = (data) => {
+  //   let { index } = this.state;
+  //   data.map(img => {
+  //     this.timeinterval = setTimeout(() => {
+  //       console.log(img);
+  //       return (
+  //         <img
+  //           className="photo"
+  //           src={img.fields.photos[0].fields.file.url}
+  //           alt={img.fields.photos[0].fields.file.fileName}
+  //         />
+  //       )
+  //     }, 2000);
+  //   });
+  // }
+  // <Fragment>
+  //   <img
+  //     className="photo"
+  //     src={data[index].fields.photos[0].fields.file.url}
+  //     alt={data[index].fields.photos[0].fields.file.fileName}
+  //   />
+  // </Fragment>
 
-  diapo = (data) => {
-    let { index } = this.state;
-    this.timeinterval = setInterval(() => {
-      console.log(index);
-      if (index === data.length) {
-        this.setState({index: 0})
-      }
-      else {
-        this.setState({index});
-        index++;
-      }
-    }, 2000);
-  }
-
-  render() {
-    const { data } = this.props;
-    const { index } = this.state;
-    console.log(data);
-    return (
-      <img
-        className="photo"
-        src={data[index].fields.photos[0].fields.file.url}
-        alt={data[index].fields.photos[0].fields.file.fileName}
-      />
-    );
-  }
+  return (
+    <Slider>
+    {
+      data.photos.map((img, i) => (
+        <Slide
+          key={i}
+          src={img.fields.photos[0].fields.file.url}
+          interval={INTERVAL}
+          indicators={INDICATORS}
+        />
+      ))
+    }
+    </Slider>
+  );
 }
 
 PhotoComponent.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.object.isRequired
 };
 
 export default PhotoComponent;

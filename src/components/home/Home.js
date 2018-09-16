@@ -9,6 +9,7 @@ import { loadHomeBackground } from '../../actions/homeAction';
 import VideoComponent from './VideoComponent';
 import PhotoComponent from './PhotoComponent';
 import BackgroundLayer from './BackgroundLayer';
+import TestimonialComponent from './TestimonialComponent';
 
 import './Home.css';
 
@@ -37,7 +38,8 @@ class Home extends React.Component {
       enter: false,
       id: ''
     };
-    this.timeoutEnter = null;
+    this.timeoutEnter;
+    this.timeoutLeave;
   }
 
   componentDidMount() {
@@ -45,15 +47,26 @@ class Home extends React.Component {
   }
 
   handleMouseOver = id => {
-    this.setState({enter: true, id});
-    // this.timeoutEnter = setTimeout(() => {
-    //   this.setState({enter: true, id})
-    // }, 1000);
-    this.timeout = setTimeout(() => this.setState({enter: false}), 10000);
+    console.log('test');
+    //  Set this timeout to enable unmount component to mount next component delay. Otherwise app breaks
+    this.timeoutEnter = setTimeout(() => {
+      this.setState({enter: true, id});
+
+    }, 1000);
+
+    //  Set enter variable to false after 10sec! Work fine when it's imbriqued
+    if (this.timeoutEnter !== null) {
+      this.timeoutLeave = setTimeout(() => {
+        clearTimeout(this.timeoutEnter);
+        this.setState({enter: false, id: ''});
+      }, 20000);
+    }
+
   }
 
   handleMouseLeave = () => {
-    if (this.timeoutEnter != null) clearTimeout(this.timeoutEnter);
+    clearTimeout(this.timeoutEnter);
+    clearTimeout(this.timeoutLeave);
     this.setState({enter: false, id: ''});
   }
 
@@ -103,6 +116,7 @@ class Home extends React.Component {
                 </NavLink>
               </li>
             </ul>
+            <TestimonialComponent testimonials={data['testimonials']} />
           </Wrapper>
         }
       </Fragment>

@@ -12,12 +12,30 @@ export const loadWorksSuccess = data => ({
   payload: data
 });
 
+export const loadVideos = videos => ({
+  type: types.LOAD_VIDEOS_SUCCESS,
+  payload: videos
+});
+
+export const loadPhotos = photos => ({
+  type: types.LOAD_PHOTOS_SUCCESS,
+  payload: photos
+});
+
 export const loadWorks = content_type => dispatch => {
   dispatch(workLoading());
   client.getEntries({ 'content_type': content_type })
     .then(({items}) => {
-      // console.log(items);
-      dispatch(loadWorksSuccess(items));
+      switch (content_type) {
+        case 'video':
+          dispatch(loadVideos(items));
+          break;
+        case 'photo':
+          dispatch(loadPhotos(items));
+          break;
+        default:
+          return {};
+      }
     })
     .catch(err => {
       console.log(err);
@@ -26,6 +44,5 @@ export const loadWorks = content_type => dispatch => {
 };
 
 export const clearWorks = () => dispatch => dispatch({
-  type: types.CLEAR_WORKS,
-  payload: []
+  type: types.CLEAR_WORKS
 });

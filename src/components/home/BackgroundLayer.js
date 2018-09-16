@@ -20,7 +20,7 @@ class BackgroundLayer extends Component {
       <Fragment>
         { work.loading && <h4>Loading...</h4> }
         {
-          !work.loading && work.data.length > 0 &&
+          !work.loading && work.data !== null &&
           <Component data={work.data} />
         }
       </Fragment>

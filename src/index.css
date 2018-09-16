@@ -4,3 +4,7 @@ body {
   font-family: sans-serif;
   background-image: linear-gradient(to bottom right, #1DE5E2, #5581F1, #1153FC, #B588E7);
 }
+
+ul {
+  list-style: none;
+}
