@@ -1,26 +1,26 @@
 import * as types from '../types';
 import client from '../contentfulCredentials';
 
-export const homeBackgroundLoading = (isLoading = true) => ({
-  type: types.HOME_LOADING,
+export const aboutLoading = (isLoading = true) => ({
+  type: types.ABOUT_LOADING,
   payload: isLoading
 })
 
-export const homeBackgroundLoadSuccess = data => ({
-  type: types.LOAD_HOME_SUCCESS,
+export const aboutLoadSuccess = data => ({
+  type: types.LOAD_ABOUT_SUCCESS,
   payload: data
 });
 
-export const loadHomeBackground = () => dispatch => {
-  dispatch(homeBackgroundLoading());
+export const loadAbout = () => dispatch => {
+  dispatch(aboutLoading());
   // Get entry by id
-  client.getEntry("7m7h78nxhm60026iykCoC0")
+  client.getEntry("7BxeXLM4XSa2uUWQyAEks8")
     .then(({ fields }) => {
-      dispatch(homeBackgroundLoadSuccess(fields));
+      dispatch(aboutLoadSuccess(fields));
     })
     .catch(err => {
       console.log(err);
-      dispatch(homeBackgroundLoading(false));
+      dispatch(aboutLoading(false));
     });
 
   // Get entries by content type

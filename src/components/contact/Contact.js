@@ -6,15 +6,15 @@ import { Row, Col, Input, Button, Card } from 'react-materialize';
 
 import { sendMail } from '../../actions/contactAction';
 
-const FormStyle = styled.form`
-  width: auto;
-  height: auto;
-  border-radius: 20px;
-  padding: 10%;
-  background: #333;
-`;
+import './Contact.css';
 
-const { log } = console;
+// const FormStyle = styled.form`
+//   width: auto;
+//   height: auto;
+//   border-radius: 20px;
+//   padding: 10%;
+//   background: #333;
+// `;
 
 class Contact extends Component {
   state = {
@@ -36,12 +36,20 @@ class Contact extends Component {
     const { email, content } = this.state;
     return (
       <div style={{textAlign: "center"}}>
-        <div className="container">
+        <div className="container" style={{display: 'block'}}>
           <h4>Contact</h4>
           <h5>Une interrogation, laissez moi un message et je vous recontacterai</h5>
-          <Card style={{ margin: "30px 0", width: "auto", height: "auto" }}>
-            <form onSubmit={this.handleSubmit} noValidate style={{postion: "relative"}}>
-              <Row className="container" style={{ position: "relative", left: "50%", transform: "translateX(-50%)"}}>
+          <Card className="card-form">
+            <form className="container" onSubmit={this.handleSubmit} noValidate style={{postion: "relative"}}>
+              <Row
+                className="container"
+                style={{
+                  position: "relative",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  display: "block"
+                }}
+              >
                 <Input
                   type="email"
                   onChange={this.handleChange}

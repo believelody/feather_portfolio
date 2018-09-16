@@ -2,14 +2,12 @@ import { combineReducers } from 'redux';
 
 import postReducer from './postReducer';
 import homeReducer from './homeReducer';
-import photoReducer from './photoReducer';
-import videoReducer from './videoReducer';
+import aboutReducer from './aboutReducer';
 import workReducer from './workReducer';
 
 export default combineReducers({
   post: postReducer,
   home: homeReducer,
-  photo: photoReducer,
-  video: videoReducer,
+  about: aboutReducer,
   work: workReducer
 });
