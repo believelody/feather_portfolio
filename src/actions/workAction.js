@@ -23,4 +23,9 @@ export const loadWorks = content_type => dispatch => {
       console.log(err);
       dispatch(workLoading(false));
     });
-}
+};
+
+export const clearWorks = () => dispatch => dispatch({
+  type: types.CLEAR_WORKS,
+  payload: []
+});

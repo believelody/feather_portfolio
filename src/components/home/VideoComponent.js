@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const VideoComponent = ({data}) => {
+  console.log(data);
   return (
     <video className='video' autoPlay='true' muted>
       <source

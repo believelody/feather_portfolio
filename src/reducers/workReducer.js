@@ -13,6 +13,7 @@ export default (state = initialState, { type, payload}) => {
         loading: payload
       };
     case types.LOAD_WORKS_SUCCESS:
+    case types.CLEAR_WORKS:
       return {
         ...state,
         data: payload,

@@ -34,30 +34,32 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      enter: false
+      enter: false,
+      id: ''
     };
-    this.timeoutEnter;
+    this.timeoutEnter = null;
   }
 
   componentDidMount() {
     this.props.loadHomeBackground();
   }
 
-  handleMouseOver = () => {
-    this.timeoutEnter = setTimeout(() => {
-      this.setState({enter: true})
-    }, 1000);
-    setTimeout(() => this.setState({enter: false}), 10000);
+  handleMouseOver = id => {
+    this.setState({enter: true, id});
+    // this.timeoutEnter = setTimeout(() => {
+    //   this.setState({enter: true, id})
+    // }, 1000);
+    this.timeout = setTimeout(() => this.setState({enter: false}), 10000);
   }
 
   handleMouseLeave = () => {
-    clearTimeout(this.timeoutEnter);
-    this.setState({enter: false});
+    if (this.timeoutEnter != null) clearTimeout(this.timeoutEnter);
+    this.setState({enter: false, id: ''});
   }
 
   render() {
     const { data, loading } = this.props.home;
-    const { enter } = this.state;
+    const { enter, id } = this.state;
     return (
       <Fragment>
         {loading && (data === null || data === undefined) && <h3>Loading ...</h3>}
@@ -66,19 +68,27 @@ class Home extends React.Component {
           <Wrapper url={data['background'].fields.file.url}>
             <h3>{data.background.fields.description}</h3>
             <ul className="container" style={{listStyle: 'none'}}>
-              <li className='expand' onMouseOver={this.handleMouseOver} onMouseLeave={this.handleMouseLeave}>
+              <li
+                className='expand'
+                onMouseOver={() => this.handleMouseOver('video')}
+                onMouseLeave={this.handleMouseLeave}
+              >
                 <NavLink to='/contact' style={{textDecoration: 'none', color: 'white'}}>
                   <TextWrapper>Videos</TextWrapper>
                   {
-                    enter && window.screen.width >= 1024 && <BackgroundLayer content_type='video' component={VideoComponent} />
+                    enter && id === 'video' && window.screen.width >= 1024 && <BackgroundLayer content_type='video' component={VideoComponent} />
                   }
                 </NavLink>
               </li>
-              <li className='expand'>
+              <li
+                className='expand'
+                onMouseOver={() =>this.handleMouseOver('photo')}
+                onMouseLeave={this.handleMouseLeave}
+              >
                 <NavLink to='/contact' style={{textDecoration: 'none', color: 'white'}}>
                   <TextWrapper>Photos</TextWrapper>
                   {
-                    enter && window.screen.width >= 1024 && <BackgroundLayer content_type='photo' component={PhotoComponent} />
+                    enter && id === 'photo' && window.screen.width >= 1024 && <BackgroundLayer content_type='photo' component={PhotoComponent} />
                   }
                 </NavLink>
               </li>
