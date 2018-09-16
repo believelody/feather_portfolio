@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const BackgroundLayer = ({component: Component}) => {
-  return (
-    <Component />
-  );
+import { loadWorks } from '../../actions/workAction';
+
+class BackgroundLayer extends Component {
+
+  componentDidMount() {
+    this.props.loadWorks(this.props.content_type);
+  }
+  render() {
+    const { work, component: Component } = this.props;
+    return (
+      <Fragment>
+        { work.loading && <h4>Loading...</h4> }
+        {
+          !work.loading && work.data.length > 0 &&
+          <Component data={work.data} />
+        }
+      </Fragment>
+    );
+  }
 }
 
-export default BackgroundLayer;
+BackgroundLayer.propTypes = {
+  work: PropTypes.object.isRequired,
+  loadWorks: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  work: state.work
+})
+
+export default connect(mapStateToProps, { loadWorks })(BackgroundLayer);

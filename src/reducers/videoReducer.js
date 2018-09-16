@@ -2,22 +2,22 @@ import * as types from '../types';
 
 const initialState = {
   loading: false,
-  data: null
+  videos: []
 }
 
-export default (state = initialState, { type, payload }) => {
+export default (state = initialState, { type, payload}) => {
   switch (type) {
-    case types.HOME_LOADING:
+    case types.VIDEO_LOADING:
       return {
         ...state,
         loading: payload
       };
-    case types.LOAD_HOME_SUCCESS:
+    case types.LOAD_VIDEOS_SUCCESS:
       return {
         ...state,
-        data: payload,
+        videos: payload,
         loading: false
-      }
+      };
     default:
       return state;
   }

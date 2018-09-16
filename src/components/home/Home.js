@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { loadHomeBackground } from '../../actions/homeAction';
 
 import VideoComponent from './VideoComponent';
+import PhotoComponent from './PhotoComponent';
 import BackgroundLayer from './BackgroundLayer';
 
 import './Home.css';
@@ -68,12 +69,17 @@ class Home extends React.Component {
               <li className='expand' onMouseOver={this.handleMouseOver} onMouseLeave={this.handleMouseLeave}>
                 <NavLink to='/contact' style={{textDecoration: 'none', color: 'white'}}>
                   <TextWrapper>Videos</TextWrapper>
-                  { enter && window.screen.width >= 1024 && <BackgroundLayer component={VideoComponent} /> }
+                  {
+                    enter && window.screen.width >= 1024 && <BackgroundLayer content_type='video' component={VideoComponent} />
+                  }
                 </NavLink>
               </li>
               <li className='expand'>
                 <NavLink to='/contact' style={{textDecoration: 'none', color: 'white'}}>
                   <TextWrapper>Photos</TextWrapper>
+                  {
+                    enter && window.screen.width >= 1024 && <BackgroundLayer content_type='photo' component={PhotoComponent} />
+                  }
                 </NavLink>
               </li>
               <li className='expand'>

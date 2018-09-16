@@ -1,40 +1,19 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-import { loadVideoHomeBackground } from '../../actions/homeAction';
-
-class VideoComponent extends Component {
-
-  componentDidMount() {
-    this.props.loadVideoHomeBackground();
-  }
-  render() {
-    const { video } = this.props.home;
-    console.log(video);
-    return (
-      <Fragment>
-        {
-          video !== null &&
-          <video className='video' autoPlay='true' muted>
-            <source
-              src={video['videoHomeBackground'].fields.file.url}
-              type={video['videoHomeBackground'].fields.file.contentType}
-            />
-          </video>
-        }
-      </Fragment>
-    );
-  }
+const VideoComponent = ({data}) => {
+  return (
+    <video className='video' autoPlay='true' muted>
+      <source
+        src={data[0].fields['videos'].fields.file.url}
+        type={data[0].fields['videos'].fields.file.contentType}
+      />
+    </video>
+  );
 }
 
 VideoComponent.propTypes = {
-  home: PropTypes.object.isRequired,
-  loadVideoHomeBackground: PropTypes.func.isRequired
+  data: PropTypes.array.isRequired
 };
 
-const mapStateToProps = state => ({
-  home: state.home
-})
-
-export default connect(mapStateToProps, { loadVideoHomeBackground })(VideoComponent);
+export default VideoComponent;
