@@ -4,13 +4,17 @@ import styled from 'styled-components';
 
 import { Social } from '../Export';
 
-const Wrapper = styled.div`
+const Wrapper = styled.footer`
   width: 100%;
-  line-height: 30px;
+  height: 100%;
+  position: relative;
+  line-height: 50px;
   background: linear-gradient(to bottom right, #1153FC, #B588E7);
   text-align: center;
   color: white;
-  top: 100vh;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
 `;
 
 class FooterComponent extends Component {
@@ -19,7 +23,7 @@ class FooterComponent extends Component {
     return (
       <Wrapper>
         <Social />
-        &copy; 2018 Copyright
+        <span>&copy; 2018 Copyright</span>
       </Wrapper>
     );
   }
