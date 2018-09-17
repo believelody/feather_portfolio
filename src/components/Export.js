@@ -8,6 +8,7 @@ import WorkItem from './work/WorkItem';
 import About from './about/About';
 import Resume from './resume/Resume';
 import Contact from './contact/Contact';
+import Social from './social/Social';
 
 export {
   Header,
@@ -19,5 +20,6 @@ export {
   Work,
   WorkItem,
   Resume,
-  Contact
+  Contact,
+  Social
 };
