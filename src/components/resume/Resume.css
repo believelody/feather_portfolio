@@ -1,0 +1,15 @@
+.card-item {
+  border-radius: 10px;
+}
+
+.shadow {
+  box-shadow: 3px 1px 10px rgba(0, 0, 0, .4);
+  color: white;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 1024px) {
+  .wrapper {
+    margin: 0 5%;
+  }
+}

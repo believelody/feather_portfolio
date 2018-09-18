@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, NavItem } from 'react-materialize';
+import { Navbar } from 'react-materialize';
 
 class Header extends Component {
   state = {
@@ -11,7 +11,12 @@ class Header extends Component {
 
   render() {
     return (
-      <Navbar style={{backgroundImage: 'linear-gradient(to bottom right, #1DE5E2, #5581F1)'}} brand="I am Mani D" right>
+      <Navbar
+        style={{backgroundImage: 'linear-gradient(to bottom right, #1DE5E2, #5581F1)'}}
+        brand="I am Mani D"
+        right
+        options={{ closeOnClick: true }}
+      >
         <li><Link to='/'>Accueil</Link></li>
         <li><Link to='/about'>A propos de moi</Link></li>
         <li><Link to='/resume'>Compétences</Link></li>

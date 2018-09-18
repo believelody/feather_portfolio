@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   background-image: linear-gradient(to bottom right, #1DE5E2, #5581F1, #1153FC, #B588E7);
 }
 

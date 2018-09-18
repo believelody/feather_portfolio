@@ -2,14 +2,14 @@ import React from 'react';
 import { Card, Row, Col } from 'react-materialize';
 
 const TestimonialComponent = ({testimonials}) => (
-  <Row>
-    <Col s={12}>
+  <ul>
+    <li>
       <h3 style={{textAlign: 'center'}}>-- Témoignages --</h3>
-    </Col>
+    </li>
     {
       testimonials.map((testimonial, i) => (
-        <Col s={12} key={i}>
-          <Card className="blue-grey z-depth-3">
+        <li key={i} style={{margin: '0 20px'}}>
+          <Card className="blue-grey z-depth-3" style={{borderRadius: '10px'}}>
             <Row>
               <Col s={12} m={2}>
                 <Row>
@@ -18,9 +18,9 @@ const TestimonialComponent = ({testimonials}) => (
                     alt={testimonial.fields.avatar.fields.file.fileName}
                     src={testimonial.fields.avatar.fields.file.url}
                   />
-                  <h6 className="col s9 m12">
+                  <p className="col s9 m12 heading-6">
                     {testimonial.fields.author}
-                  </h6>
+                  </p>
                 </Row>
               </Col>
               <Col s={12} m={10}>
@@ -30,10 +30,10 @@ const TestimonialComponent = ({testimonials}) => (
               </Col>
             </Row>
           </Card>
-        </Col>
+        </li>
       ))
     }
-  </Row>
+  </ul>
 );
 
 export default TestimonialComponent;

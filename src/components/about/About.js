@@ -1,11 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Row, Col, Card } from 'react-materialize';
+import { Card, CardTitle } from 'react-materialize';
+import styled from 'styled-components';
 
 import { loadAbout } from '../../actions/aboutAction';
 
 import './About.css';
+
+const CardWrapper = styled.div`
+  background: url(${props => props.img});
+`;
 
 class About extends React.Component {
   componentDidMount() {
@@ -19,21 +24,13 @@ class About extends React.Component {
         { loading && data === null && <h3>Loading...</h3> }
         {
           !loading && data !== null && (
-            <Card>
-              <Row>
-                <Col s={12} m={4}>
-                  <img
-                    className="responsive-img"
-                    src={data.picture.fields.file.url}
-                    alt={data.picture.fields.file.fileName}
-                  />
-                </Col>
-                <Col s={12} m={8}>
-                  <p>
-                    {data.bio}
-                  </p>
-                </Col>
-              </Row>
+            <Card className='wrapper'>
+              <img
+                src={data.picture.fields.file.url}
+                alt={data.picture.fields.file.fileName}
+                className='img-wrapper'
+              />
+              <p>{data.bio}</p>
             </Card>
           )
         }

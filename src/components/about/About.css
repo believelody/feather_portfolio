@@ -1,9 +1,36 @@
 .about {
   margin: 0;
+  padding: 0;
+  color: black;
 }
 
-@media only screen and (min-width: 1024px) {
+.wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.img-wrapper {
+  float: left;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2%;
+  border-radius: 10px;
+}
+
+@media only screen and (min-width: 700px) {
   .about {
-    margin: 0 10%;
+    padding: 1% 5%;
+  }
+
+  .wrapper {
+    border-radius: 10px;
+  }
+
+  .img-wrapper {
+    width: 40%;
+    margin-right: 5%;
+    box-shadow: 4px 1px 5px rgba(0, 0, 0, .4);
   }
 }
