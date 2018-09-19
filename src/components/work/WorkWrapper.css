@@ -1,0 +1,12 @@
+.work-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex: auto;
+  margin: 1% 2%;
+}
+
+.work-item {
+  width: 400px;
+  height: auto;
+}

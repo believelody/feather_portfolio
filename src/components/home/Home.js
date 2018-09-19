@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { Preloader } from 'react-materialize';
 
 import { loadHomeBackground } from '../../actions/homeAction';
+import { clearWorks } from '../../actions/workAction';
 
 import VideoComponent from './VideoComponent';
 import PhotoComponent from './PhotoComponent';
@@ -46,8 +48,15 @@ class Home extends React.Component {
     this.props.loadHomeBackground();
   }
 
+  componentWillMount() {
+    this.props.clearWorks();
+  }
+
+  componentWillUnmount() {
+    this.props.clearWorks();
+  }
+
   handleMouseOver = id => {
-    console.log('test');
     //  Set this timeout to enable unmount component to mount next component delay. Otherwise app breaks
     this.timeoutEnter = setTimeout(() => {
       this.setState({enter: true, id});
@@ -75,7 +84,7 @@ class Home extends React.Component {
     const { enter, id } = this.state;
     return (
       <Fragment>
-        {loading && (data === null || data === undefined) && <h3>Loading ...</h3>}
+        {loading && (data === null || data === undefined) && <Preloader className="loading" color="red" size="big" />}
         {
           !loading && data !== null && data !== undefined &&
           <Wrapper url={data['background'].fields.file.url}>
@@ -86,7 +95,13 @@ class Home extends React.Component {
                 onMouseOver={() => this.handleMouseOver('video')}
                 onMouseLeave={this.handleMouseLeave}
               >
-                <NavLink to='/contact' style={{textDecoration: 'none', color: 'white'}}>
+                <NavLink
+                  to={{
+                    pathname: '/works/videos',
+                    state:{ content_type: 'video' }
+                  }}
+                  style={{textDecoration: 'none', color: 'white'}}
+                >
                   <TextWrapper>Videos</TextWrapper>
                   {
                     enter && id === 'video' && window.screen.width >= 1024 && <BackgroundLayer content_type='video' component={VideoComponent} />
@@ -98,7 +113,13 @@ class Home extends React.Component {
                 onMouseOver={() =>this.handleMouseOver('photo')}
                 onMouseLeave={this.handleMouseLeave}
               >
-                <NavLink to='/contact' style={{textDecoration: 'none', color: 'white'}}>
+                <NavLink
+                  to={{
+                    pathname: '/works/photos',
+                    state:{ content_type: 'photo' }
+                  }}
+                  style={{textDecoration: 'none', color: 'white'}}
+                >
                   <TextWrapper>Photos</TextWrapper>
                   {
                     enter && id === 'photo' && window.screen.width >= 1024 && <BackgroundLayer content_type='photo' component={PhotoComponent} />
@@ -126,11 +147,12 @@ class Home extends React.Component {
 
 Home.propTypes = {
   home: PropTypes.object.isRequired,
-  loadHomeBackground: PropTypes.func.isRequired
+  loadHomeBackground: PropTypes.func.isRequired,
+  clearWorks: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   home: state.home
 })
 
-export default connect(mapStateToProps, { loadHomeBackground })(Home);
+export default connect(mapStateToProps, { loadHomeBackground, clearWorks })(Home);

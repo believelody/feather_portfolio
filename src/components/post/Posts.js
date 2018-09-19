@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Preloader } from 'react-materialize';
 
 import { loadPosts } from '../../actions/postAction';
 import { PostItem } from '../Export';
@@ -23,7 +24,7 @@ class Posts extends React.Component {
     return (
       <div className='posts'>
       {
-        loading && <h3>Loading ...</h3>
+        loading && <Preloader className="loading" color="red" size="big" />
       }
       {
         !loading && posts.map(({fields}, i) => <PostItem key={i} {...fields} />)

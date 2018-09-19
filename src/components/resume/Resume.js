@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Row, Col, Card, Chip } from 'react-materialize';
+import { Row, Col, Card, Chip, Preloader } from 'react-materialize';
 
 import { loadResume } from '../../actions/resumeAction';
 
@@ -18,7 +18,7 @@ class Resume extends React.Component {
     return (
       <Fragment>
         {
-          loading && <h4>Loading...</h4>
+          loading && <Preloader className="loading" color="red" size="big" />
         }
         {
           !loading && resume.length > 0 && (

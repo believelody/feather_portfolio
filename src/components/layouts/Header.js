@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Navbar } from 'react-materialize';
 
 class Header extends Component {
@@ -17,11 +17,11 @@ class Header extends Component {
         right
         options={{ closeOnClick: true }}
       >
-        <li><Link to='/'>Accueil</Link></li>
-        <li><Link to='/about'>A propos de moi</Link></li>
-        <li><Link to='/resume'>Compétences</Link></li>
-        <li><Link to='/posts'>Mes travaux</Link></li>
-        <li><Link to='/contact'>Contact</Link></li>
+        <li><NavLink activeClassName='' to='/'>Accueil</NavLink></li>
+        <li><NavLink activeClassName='' to='/about'>A propos de moi</NavLink></li>
+        <li><NavLink activeClassName='' to='/resume'>Compétences</NavLink></li>
+        <li><NavLink activeClassName='' to='/posts'>Mes travaux</NavLink></li>
+        <li><NavLink activeClassName='' to='/contact'>Contact</NavLink></li>
       </Navbar>
     );
   }

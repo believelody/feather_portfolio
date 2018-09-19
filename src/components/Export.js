@@ -9,6 +9,9 @@ import About from './about/About';
 import Resume from './resume/Resume';
 import Contact from './contact/Contact';
 import Social from './social/Social';
+import WorkWrapper from './work/WorkWrapper';
+import Videos from './work/Videos';
+import Photos from './work/Photos';
 
 export {
   Header,
@@ -21,5 +24,8 @@ export {
   PostItem,
   Resume,
   Contact,
-  Social
+  Social,
+  WorkWrapper,
+  Videos,
+  Photos
 };

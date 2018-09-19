@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Card, CardTitle } from 'react-materialize';
+import { Card, CardTitle, Preloader } from 'react-materialize';
 import styled from 'styled-components';
 
 import { loadAbout } from '../../actions/aboutAction';
@@ -21,7 +21,7 @@ class About extends React.Component {
     const { data, loading } = this.props.about;
     return (
       <div className="about">
-        { loading && data === null && <h3>Loading...</h3> }
+        { loading && data === null && <Preloader className="loading" color="red" size="big" /> }
         {
           !loading && data !== null && (
             <Card className='wrapper'>

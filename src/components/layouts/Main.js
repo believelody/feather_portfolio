@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { Home, Resume, Posts, Post, About, Contact } from '../Export';
+import { Home, Resume, Posts, Post, About, Contact, WorkWrapper } from '../Export';
 
 import styled from 'styled-components';
 
@@ -21,6 +21,7 @@ class Main extends Component {
           <Route exact path='/posts/:post_id' component={Post} />
           <Route exact path='/resume' component={Resume} />
           <Route exact path='/contact' component={Contact} />
+          <Route exact path='/works/:work_id' component={WorkWrapper} />
         </Switch>
       </main>
     );
