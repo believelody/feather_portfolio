@@ -13,9 +13,9 @@ export const loadPostsSuccess = posts => ({
 
 export const loadPosts = () => dispatch => {
   dispatch(postsLoading());
-  client.getEntries()
+  client.getEntries({'content_type': 'post'})
     .then(({ items }) => {
-      console.log(items);
+      // console.log(items);
       dispatch(loadPostsSuccess(items))
     })
     .catch(err => {

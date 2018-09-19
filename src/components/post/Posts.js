@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { loadPosts } from '../../actions/postAction';
-import client from '../../contentfulCredentials';
-import { WorkItem } from '../Export';
+import { PostItem } from '../Export';
 
-class Works extends React.Component {
+import './Post.css';
+
+class Posts extends React.Component {
 
   componentDidMount() {
     // this.fetchPosts().then(this.setPosts)
@@ -20,19 +21,19 @@ class Works extends React.Component {
   render() {
     const { posts, loading } = this.props.post;
     return (
-      <div>
+      <div className='posts'>
       {
         loading && <h3>Loading ...</h3>
       }
       {
-        !loading && posts.map(({fields}, i) => <WorkItem key={i} {...fields} />)
+        !loading && posts.map(({fields}, i) => <PostItem key={i} {...fields} />)
       }
       </div>
     )
   }
 }
 
-Works.propTypes = {
+Posts.propTypes = {
   post: PropTypes.object.isRequired,
   loadPosts: PropTypes.func.isRequired
 };
@@ -41,4 +42,4 @@ const mapStateToProps = state => ({
   post: state.post
 });
 
-export default connect( mapStateToProps, { loadPosts })(Works);
+export default connect( mapStateToProps, { loadPosts })(Posts);

@@ -20,7 +20,7 @@ class Header extends Component {
         <li><Link to='/'>Accueil</Link></li>
         <li><Link to='/about'>A propos de moi</Link></li>
         <li><Link to='/resume'>Compétences</Link></li>
-        <li><Link to='/works'>Mes travaux</Link></li>
+        <li><Link to='/posts'>Mes travaux</Link></li>
         <li><Link to='/contact'>Contact</Link></li>
       </Navbar>
     );
