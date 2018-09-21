@@ -13,11 +13,11 @@ class Photos extends React.Component {
   openModal = (selected, isOpen = true) => this.setState({selected, isOpen});
 
   // expandElement = () => <button>Zoom</button>
-
+  // 
   // imgElement = photo => {
   //   return (<img onClick{() => this.setState({selected: photo})} className='work-photo' src={photo.fields.file.url} alt={photo.fields.file.fileName} />);
   // }
-
+  //
   // modalPhoto = photo => {
   //   const triggerElement = this.imgElement(photo);
   //
@@ -36,7 +36,6 @@ class Photos extends React.Component {
   render() {
     const { isOpen, selected } = this.state;
     const { data } = this.props;
-    console.log(isOpen);
     return (
       <ul onClick={() => isOpen ? this.openModal(null, false) : null} className='work-list'>
         {

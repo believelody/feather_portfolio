@@ -7,7 +7,7 @@
 .post-item {
   margin: 1% 0;
   /* height: 500px; */
-  width: 500px;
+  max-width: 500px;
   /* border: 1px solid black; */
 }
 
