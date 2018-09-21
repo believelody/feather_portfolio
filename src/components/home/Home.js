@@ -28,7 +28,6 @@ const TextWrapper = styled.h5`
   top : 50%;
   left: 50%;
   border: 2px solid white;
-  padding: 5px;
   z-index: 1;
   transform: translate(-50%, -50%);
 `;
@@ -91,7 +90,7 @@ class Home extends React.Component {
             <h3>{data.background.fields.description}</h3>
             <ul className="container" style={{listStyle: 'none'}}>
               <li
-                className='expand'
+                className='expand video-grid'
                 onMouseOver={() => this.handleMouseOver('video')}
                 onMouseLeave={this.handleMouseLeave}
               >
@@ -106,7 +105,7 @@ class Home extends React.Component {
                 </NavLink>
               </li>
               <li
-                className='expand'
+                className='expand photo-grid'
                 onMouseOver={() =>this.handleMouseOver('photo')}
                 onMouseLeave={this.handleMouseLeave}
               >
@@ -120,12 +119,12 @@ class Home extends React.Component {
                   }
                 </NavLink>
               </li>
-              <li className='expand'>
+              <li className='expand design-grid'>
                 <NavLink to='/contact' style={{textDecoration: 'none', color: 'white'}}>
                   <TextWrapper>Design</TextWrapper>
                 </NavLink>
               </li>
-              <li className='expand'>
+              <li className='expand illustration-grid'>
                 <NavLink to='/contact' style={{textDecoration: 'none', color: 'white'}}>
                   <TextWrapper>Illustrations</TextWrapper>
                 </NavLink>
