@@ -61,14 +61,12 @@ const PhotoComponent = ({data}) => {
   // </Fragment>
 
   return (
-    <Slider>
+    <Slider indicators={false} interval={2000}>
     {
       data.photos.map((img, i) => (
         <Slide
           key={i}
           src={img.fields.photos[0].fields.file.url}
-          interval={INTERVAL}
-          indicators={INDICATORS}
         />
       ))
     }

@@ -8,5 +8,24 @@
 
 .work-item {
   width: 400px;
+}
+
+.work-video {
+  height: 100%;
+  width: 100%;
+}
+
+.work-carousel {
+  height: 500px;
+}
+
+.work-photo {
+  width: 100%;
+  height: 100%;
+}
+
+.work-modal {
+  width: 90vw;
   height: auto;
+  padding: 0 2%;
 }

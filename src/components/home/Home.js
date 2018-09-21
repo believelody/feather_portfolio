@@ -68,7 +68,7 @@ class Home extends React.Component {
       this.timeoutLeave = setTimeout(() => {
         clearTimeout(this.timeoutEnter);
         this.setState({enter: false, id: ''});
-      }, 20000);
+      }, 10000);
     }
 
   }
@@ -96,10 +96,7 @@ class Home extends React.Component {
                 onMouseLeave={this.handleMouseLeave}
               >
                 <NavLink
-                  to={{
-                    pathname: '/works/videos',
-                    state:{ content_type: 'video' }
-                  }}
+                  to='/works/video'
                   style={{textDecoration: 'none', color: 'white'}}
                 >
                   <TextWrapper>Videos</TextWrapper>
@@ -114,10 +111,7 @@ class Home extends React.Component {
                 onMouseLeave={this.handleMouseLeave}
               >
                 <NavLink
-                  to={{
-                    pathname: '/works/photos',
-                    state:{ content_type: 'photo' }
-                  }}
+                  to='/works/photo'
                   style={{textDecoration: 'none', color: 'white'}}
                 >
                   <TextWrapper>Photos</TextWrapper>

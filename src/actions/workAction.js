@@ -31,6 +31,7 @@ export const loadWorks = content_type => dispatch => {
           dispatch(loadVideos(items));
           break;
         case 'photo':
+          // console.log(items);
           dispatch(loadPhotos(items));
           break;
         default:

@@ -10,9 +10,8 @@ import './WorkWrapper.css';
 
 class WorkWrapper extends Component {
 
-  componentDidMount() {
-    // console.log(this.props);
-    this.props.loadWorks(this.props.location.state.content_type);
+  componentWillMount() {
+    this.props.loadWorks(this.props.match.params.work_id);
   }
 
   render() {
@@ -21,10 +20,10 @@ class WorkWrapper extends Component {
       <Fragment>
         {loading && (data === null || data === undefined) && <Preloader className="loading" color="red" size="big" />}
         {
-          !loading && (data !== null || data !== undefined) && (
+          !loading && (data !== null && data !== undefined) && (
             <Fragment>
-              {this.props.location.state.content_type === 'video' && <Videos data={data} />}
-              {this.props.location.state.content_type === 'photo' && <Photos data={data} />}
+              {this.props.match.params.work_id === 'video' && <Videos data={data} />}
+              {this.props.match.params.work_id === 'photo' && <Photos data={data} />}
             </Fragment>
           )
         }
