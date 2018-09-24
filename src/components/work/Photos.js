@@ -13,7 +13,7 @@ class Photos extends React.Component {
   openModal = (selected, isOpen = true) => this.setState({selected, isOpen});
 
   // expandElement = () => <button>Zoom</button>
-  // 
+  //
   // imgElement = photo => {
   //   return (<img onClick{() => this.setState({selected: photo})} className='work-photo' src={photo.fields.file.url} alt={photo.fields.file.fileName} />);
   // }
@@ -42,7 +42,6 @@ class Photos extends React.Component {
           data.photos.map((photo, i) =>
             <li key={i} className='work-item'>
               <Card
-                className='card-post'
                 title={photo.fields.title}
                 header={
                   <Carousel

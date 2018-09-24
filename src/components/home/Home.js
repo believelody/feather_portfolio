@@ -39,8 +39,8 @@ class Home extends React.Component {
       enter: false,
       id: ''
     };
-    this.timeoutEnter;
-    this.timeoutLeave;
+    this.timeoutEnter = null;
+    this.timeoutLeave = null;
   }
 
   componentDidMount() {

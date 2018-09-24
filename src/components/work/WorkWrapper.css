@@ -1,13 +1,15 @@
 .work-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
+  margin: 0;
   flex: auto;
-  margin: 1% 2%;
+  /* border: 1px solid black; */
+  padding: 0;
 }
 
 .work-item {
-  width: 400px;
+  min-width: 300px;
 }
 
 .work-video {
@@ -16,15 +18,21 @@
 }
 
 .work-carousel {
-  height: 500px;
+  height: 400px;
 }
 
 .work-photo {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .work-modal {
   width: 90vw;
   /* padding: 0 2%; */
+}
+
+@media only screen and (min-width: 700px) {
+  .work-list {
+    justify-content: space-around;
+  }
 }
