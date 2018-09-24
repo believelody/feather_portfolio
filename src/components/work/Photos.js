@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card, Carousel, Modal } from 'react-materialize';
+import React, { Fragment } from 'react';
+import { Card, Carousel, Modal, Icon, Button } from 'react-materialize';
 
 class Photos extends React.Component {
   constructor(props) {
@@ -12,32 +12,11 @@ class Photos extends React.Component {
 
   openModal = (selected, isOpen = true) => this.setState({selected, isOpen});
 
-  // expandElement = () => <button>Zoom</button>
-  //
-  // imgElement = photo => {
-  //   return (<img onClick{() => this.setState({selected: photo})} className='work-photo' src={photo.fields.file.url} alt={photo.fields.file.fileName} />);
-  // }
-  //
-  // modalPhoto = photo => {
-  //   const triggerElement = this.imgElement(photo);
-  //
-  //   console.log(triggerElement);
-  //   console.log(this.state.selected);
-  //
-  //   return (
-  //     <Modal
-  //       trigger={triggerElement}
-  //     >
-  //       <p>Test</p>
-  //     </Modal>
-  //   )
-  // }
-
   render() {
     const { isOpen, selected } = this.state;
     const { data } = this.props;
     return (
-      <ul onClick={() => isOpen ? this.openModal(null, false) : null} className='work-list'>
+      <ul className='work-list'>
         {
           data.photos.map((photo, i) =>
             <li key={i} className='work-item'>
@@ -45,18 +24,31 @@ class Photos extends React.Component {
                 title={photo.fields.title}
                 header={
                   <Carousel
-                    className='work-carousel'
                     options={{fullWidth: true, indicators: true}}
+                    className='work-carousel'
                   >
                     {
                       photo.fields.photos.map((item, i) =>
-                        <img
+                        <div
                           key={i}
-                          onClick={() => this.openModal(item)}
-                          className='work-photo'
-                          src={item.fields.file.url}
-                          alt={item.fields.file.fileName}
-                        />)
+                        >
+                          {
+                            window.screen.width < 1024 &&
+                            <Button
+                              onTouchStart={() => this.openModal(item)}
+                              className='work-button-modal blue-grey darken-4'
+                              floating
+                              waves='light'
+                              icon='search'
+                            />
+                          }
+                          <img
+                            className='work-photo'
+                            onClick={() => this.openModal(item)}
+                            src={item.fields.file.url}
+                            alt={item.fields.file.fileName}
+                          />
+                        </div>)
                     }
                   </Carousel>
                 }
@@ -74,7 +66,9 @@ class Photos extends React.Component {
           open={isOpen}
           className='work-modal'
         >
-          {selected && <img className='work-photo' src={selected.fields.file.url} alt={selected.fields.file.fileName} />}
+          {
+            selected && <img className='work-photo' src={selected.fields.file.url} alt={selected.fields.file.fileName} />
+          }
         </Modal>
       </ul>
     );

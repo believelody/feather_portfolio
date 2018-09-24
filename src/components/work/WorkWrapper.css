@@ -4,7 +4,6 @@
   flex-wrap: wrap;
   margin: 0;
   flex: auto;
-  /* border: 1px solid black; */
   padding: 0;
 }
 
@@ -19,6 +18,12 @@
 
 .work-carousel {
   height: 400px;
+}
+
+.work-button-modal {
+  position: absolute;
+  top: 1%;
+  left: 1%;
 }
 
 .work-photo {
