@@ -1,0 +1,6 @@
+/about  /about
+/posts/ /posts
+/resume /resume
+/contact  /contact
+/posts/:post_id /posts/:post_id
+/works/:work_id
