@@ -14,7 +14,7 @@ class Main extends Component {
   render() {
     return (
       <main>
-          <Route exact path='/' component={Home} />
+          <Route exact path='/*' component={Home} />
           <Route exact path='/about' component={About} />
           <Route exact path='/posts' component={Posts} />
           <Route exact path='/posts/:post_id' component={Post} />
