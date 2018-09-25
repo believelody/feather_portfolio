@@ -14,7 +14,6 @@ class Main extends Component {
   render() {
     return (
       <main>
-        <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/about' component={About} />
           <Route exact path='/posts' component={Posts} />
@@ -22,7 +21,6 @@ class Main extends Component {
           <Route exact path='/resume' component={Resume} />
           <Route exact path='/contact' component={Contact} />
           <Route exact path='/works/:work_id' component={WorkWrapper} />
-        </Switch>
       </main>
     );
   }
