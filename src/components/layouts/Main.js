@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import { Home, Resume, Posts, Post, About, Contact, WorkWrapper } from '../Export';
 
@@ -13,19 +13,17 @@ class Main extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <main>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/about' component={About} />
-            <Route exact path='/posts' component={Posts} />
-            <Route exact path='/posts/:post_id' component={Post} />
-            <Route exact path='/resume' component={Resume} />
-            <Route exact path='/contact' component={Contact} />
-            <Route exact path='/works/:work_id' component={WorkWrapper} />
-          </Switch>
-        </main>
-      </BrowserRouter>
+      <main>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/posts' component={Posts} />
+          <Route exact path='/posts/:post_id' component={Post} />
+          <Route exact path='/resume' component={Resume} />
+          <Route exact path='/contact' component={Contact} />
+          <Route exact path='/works/:work_id' component={WorkWrapper} />
+        </Switch>
+      </main>
     );
   }
 }

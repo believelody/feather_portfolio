@@ -16,6 +16,7 @@ const Site = styled.div`
 class App extends Component {
   render() {
     return (
+      <BrowserRouter>
         <Site>
           <Helmet
             title="Mani D Portfolio"
@@ -34,6 +35,7 @@ class App extends Component {
           <Main />
           <FooterComponent />
         </Site>
+      </BrowserRouter>
     );
   }
 }
